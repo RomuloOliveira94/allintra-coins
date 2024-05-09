@@ -8,7 +8,7 @@ const Home = () => {
     (state: RootState) => state.favoriteCriptos
   );
   const { connection, loading } = useFetchCriptoData(favoriteCriptos);
-  const { data, criptosLastValues } = useSelector(
+  const { criptosLastValues } = useSelector(
     (state: RootState) => state.criptosRealtimeData
   );
 
@@ -46,7 +46,7 @@ const Home = () => {
           .map(([key, value], index) => (
             <CriptoCard
               key={index}
-              name={value.symbol}
+              name={value.criptoName}
               symbol={key}
               price={value.price}
               image={value.image}

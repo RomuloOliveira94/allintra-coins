@@ -15,7 +15,6 @@ export const criptosRealtimeDataSlice = createSlice({
       const criptoAsset = criptosJson.find(
         (cripto) => cripto.symbol === action.payload.data.s.slice(0, -4)
       );
-
       const criptoImageUrl = criptoAsset?.icon;
       const criptoName = criptoAsset?.name;
 
@@ -42,13 +41,15 @@ export const criptosRealtimeDataSlice = createSlice({
         symbol: s,
       };
       state.data.push(cripto);
-      state.criptosLastValues.set(criptoName, {
+
+      state.criptosLastValues.set(s, {
         price: c,
         priceChange: P,
         realTimePriceColor:
           percentage < 0 ? "red" : percentage === 0 ? "white" : "green",
         image: criptoImageUrl,
         symbol: s,
+        criptoName: criptoName,
       });
     },
   },

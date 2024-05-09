@@ -20,6 +20,7 @@ export interface CriptoData {
       priceChange: number;
       image: string;
       symbol: string;
+      criptoName: string;
     }
   >;
 }
