@@ -1,9 +1,13 @@
+import SideNav from "./components/SideNav";
+
 function App() {
   return (
-    <>
-      <h1>React TypeScript App</h1>
-      <p>React TypeScript App</p>
-    </>
+    <div className="flex w-full">
+      <SideNav />
+      <main className="container">
+        <h1>Main</h1>
+      </main>
+    </div>
   );
 }
 
