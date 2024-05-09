@@ -3,9 +3,9 @@ import SideNav from "./components/SideNav";
 
 function App() {
   return (
-    <div className="flex w-full min-h-screen">
+    <div className="flex min-h-screen">
       <SideNav />
-      <main className="container overflow-x-auto">
+      <main className="container w-full">
         <Outlet />
       </main>
     </div>

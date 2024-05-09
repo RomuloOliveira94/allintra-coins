@@ -5,13 +5,17 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NotFountPage from "./pages/404.tsx";
 import Grafics from "./pages/Grafics.tsx";
+import Home from "./pages/Home.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     errorElement: <NotFountPage />,
-    children: [{ path: "/grafics", element: <Grafics /> }],
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/grafics", element: <Grafics /> },
+    ],
   },
 ]);
 
