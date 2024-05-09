@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { FavoriteCriptos } from "./types";
 
-const favoriteCriptos = {
-  criptos: ["BTCUSDT", "ETHUSDT", "SOLUSDT", "DOGEUSDT"],
+const favoriteCriptos: FavoriteCriptos = {
+  favoriteCriptos: ["BTCUSDT", "ETHUSDT", "SOLUSDT", "DOGEUSDT"],
   loading: false,
   error: null,
 };
@@ -11,10 +12,10 @@ export const favoriteCriptosSlice = createSlice({
   initialState: favoriteCriptos,
   reducers: {
     addCripto: (state, action) => {
-      state.criptos.push(action.payload);
+      state.favoriteCriptos.push(action.payload);
     },
     removeCripto: (state, action) => {
-      state.criptos = state.criptos.filter(
+      state.favoriteCriptos = state.favoriteCriptos.filter(
         (cripto) => cripto !== action.payload
       );
     },
@@ -26,3 +27,6 @@ export const favoriteCriptosSlice = createSlice({
     },
   },
 });
+
+export const { addCripto, removeCripto, setLoading, setError } =
+  favoriteCriptosSlice.actions;

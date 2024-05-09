@@ -1,23 +1,60 @@
+import { useSelector } from "react-redux";
 import CriptoCard from "../components/CriptoCard";
+import { RootState } from "../store/types";
+import useFetchCriptoData from "../hooks/useFetchCriptoData";
 
 const Home = () => {
+  const { favoriteCriptos } = useSelector(
+    (state: RootState) => state.favoriteCriptos
+  );
+  const { connection, loading } = useFetchCriptoData(favoriteCriptos);
+  const { data, criptosLastValues } = useSelector(
+    (state: RootState) => state.criptosRealtimeData
+  );
+
+  console.log(criptosLastValues);
+
+  if (!connection || loading) {
+    return (
+      <div className="p-3">
+        <h1 className="text-2xl text-center my-2">
+          Bem vindo ao Allintra Coins
+        </h1>
+
+        <h2 className="text-lg text-center font-light">
+          Dados de suas moedas favoritas em tempo real.
+        </h2>
+
+        <h3 className="text-lg text-center font-light">
+          Conectando nos servidores...
+        </h3>
+      </div>
+    );
+  }
+
   return (
     <div className="p-3">
       <h1 className="text-2xl text-center my-2">Bem vindo ao Allintra Coins</h1>
 
       <h2 className="text-lg text-center font-light">
-        Dados de suas moedas favoritas em tempo real.
+        Acompanhe suas moedas favoritas em tempo real.
       </h2>
 
-      <CriptoCard
-        name="Bitcoin"
-        symbol="BTC"
-        price={50000}
-        marketCap={1000000000}
-        volume={1000000}
-        image="https://cryptologos.cc/logos/bitcoin-btc-logo.png"
-        priceChange={2}
-      />
+      <div className="grid gap-4 mt-6">
+        {Array.from(criptosLastValues)
+          .sort()
+          .map(([key, value], index) => (
+            <CriptoCard
+              key={index}
+              name={value.symbol}
+              symbol={key}
+              price={value.price}
+              image={value.image}
+              priceColor={value.realTimePriceColor}
+              priceChange={value.priceChange}
+            />
+          ))}
+      </div>
     </div>
   );
 };

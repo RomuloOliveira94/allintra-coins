@@ -6,6 +6,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NotFountPage from "./pages/404.tsx";
 import Grafics from "./pages/Grafics.tsx";
 import Home from "./pages/Home.tsx";
+import { Provider } from "react-redux";
+import store from "./store/store.tsx";
+import { enableMapSet } from "immer";
+
+enableMapSet();
 
 const router = createBrowserRouter([
   {
@@ -21,6 +26,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
