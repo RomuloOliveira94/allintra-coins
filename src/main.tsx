@@ -9,6 +9,7 @@ import Home from "./pages/Home.tsx";
 import { Provider } from "react-redux";
 import store from "./store/store.tsx";
 import { enableMapSet } from "immer";
+import Config from "./pages/Config.tsx";
 
 enableMapSet();
 
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/grafics", element: <Grafics /> },
+      { path: "/config", element: <Config /> },
     ],
   },
 ]);

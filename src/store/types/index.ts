@@ -1,5 +1,10 @@
 export interface FavoriteCriptos {
   favoriteCriptos: string[];
+  favoriteCriptosData: {
+    name: string;
+    symbol: string;
+    image: string;
+  }[];
   loading: boolean;
   error: string | null;
 }

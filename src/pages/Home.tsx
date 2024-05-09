@@ -40,7 +40,7 @@ const Home = () => {
         Acompanhe suas moedas favoritas em tempo real.
       </h2>
 
-      <div className="grid gap-4 mt-6">
+      <div className="grid md:grid-cols-4 gap-4 mt-6">
         {Array.from(criptosLastValues)
           .sort()
           .map(([key, value], index) => (

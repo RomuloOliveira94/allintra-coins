@@ -4,6 +4,7 @@ import {
   Coins,
   Home,
   LogOut,
+  Settings,
   X,
 } from "lucide-react";
 import { useState } from "react";
@@ -15,10 +16,18 @@ const SideNav = () => {
   return (
     <div className="fixed h-full">
       <button
-        className={isOpen ? "absolute top-0 left-40 z-10 xl:left-48" : "absolute top-0 left-0"}
+        className={
+          isOpen
+            ? "absolute top-0 left-40 z-10 xl:left-48"
+            : "absolute top-0 left-0"
+        }
         onClick={() => setIsOpen(!isOpen)}
       >
-        {isOpen ? <X size={32} className="text-white" /> : <ChevronRight size={40} />}
+        {isOpen ? (
+          <X size={32} className="text-white" />
+        ) : (
+          <ChevronRight size={40} />
+        )}
       </button>
 
       {isOpen && (
@@ -30,7 +39,10 @@ const SideNav = () => {
             </span>
           </h1>
           <nav>
-            <ul className="flex flex-col  gap-2 w-full text-lg">
+            <ul
+              className="flex flex-col  gap-2 w-full text-lg"
+              onClick={() => setIsOpen(!isOpen)}
+            >
               <li>
                 <Link to={"/"} className="text-white flex gap-4 items-center">
                   <Home size={20} /> Home
@@ -42,6 +54,14 @@ const SideNav = () => {
                   className="text-white flex gap-4 items-center"
                 >
                   <BarChart4 size={20} /> Gráficos
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to={"/config"}
+                  className="text-white flex gap-4 items-center"
+                >
+                  <Settings size={20} /> Configurar
                 </Link>
               </li>
               <li>
