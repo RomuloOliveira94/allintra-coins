@@ -25,7 +25,7 @@ const CriptoCard = ({
       : "text-black";
 
   return (
-    <div className="flex justify-between items-center bg-white p-3 rounded-lg text-black shadow-md">
+    <div className="flex justify-between items-center bg-white p-3 rounded-lg text-black shadow-md w-full">
       <div className="grid gap-2">
         <div className="flex gap-2 font-bold text-xl">
           <h2>{name}</h2>-<p>{symbol}</p>
@@ -33,7 +33,7 @@ const CriptoCard = ({
 
         <div className="flex justify-between font-semibold">
           <div className="grid gap-2">
-            <h3 className={`text-md ${textColor} flex items-center`}>
+            <h3 className={`text-sm sm:text-md ${textColor} flex items-center`}>
               Valor atual - $ {price}
               {priceColor === "red" ? (
                 <MoveDown size={16} className="text-error mb-1" />

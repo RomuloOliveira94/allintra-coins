@@ -19,13 +19,17 @@ const Config = () => {
   };
 
   return (
-    <div className="grid gap-2 p-6">
+    <div className="grid gap-2 p-6 mt-6">
       <div className="my-2">
         <ThemeChanger />
       </div>
       <h1 className="text-xl font-bold text-center md:text-start">
         Configures suas moedas favoritas
       </h1>
+      <small>
+        *Algumas moedas podem não carregar corretamente ou estarem
+        indisponíveis.
+      </small>
       <select
         className="select select-bordered w-full max-w-md my-6 text-lg max-sm:mx-auto"
         name="criptos"
@@ -34,7 +38,7 @@ const Config = () => {
         <option disabled defaultValue={""}>
           Selecione aqui.
         </option>
-        {Criptos.map((cripto, index) => (
+        {Criptos.sort((a, b) => a.name - b.name).map((cripto, index) => (
           <option key={index} value={cripto.symbol}>
             {cripto.name}
           </option>
