@@ -1,4 +1,4 @@
-import { MoveDown } from "lucide-react";
+import { MoveDown, MoveUp } from "lucide-react";
 
 interface CriptoCardProps {
   name: string;
@@ -39,7 +39,7 @@ const CriptoCard = ({
               {priceColor === "red" ? (
                 <MoveDown size={16} className="text-error mb-1" />
               ) : priceColor === "green" ? (
-                <MoveDown size={16} className="text-success mb-1" />
+                <MoveUp size={16} className="text-success mb-1" />
               ) : null}
             </h3>
             {priceChange < 0 ? (
