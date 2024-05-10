@@ -4,7 +4,6 @@ import App from "./App.tsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NotFountPage from "./pages/404.tsx";
-import Grafics from "./pages/Grafics.tsx";
 import Home from "./pages/Home.tsx";
 import { Provider } from "react-redux";
 import store from "./store/store.tsx";
@@ -20,7 +19,6 @@ const router = createBrowserRouter([
     errorElement: <NotFountPage />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "/grafics", element: <Grafics /> },
       { path: "/config", element: <Config /> },
     ],
   },

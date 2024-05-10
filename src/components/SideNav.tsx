@@ -1,5 +1,4 @@
 import {
-  BarChart4,
   ChevronRight,
   Coins,
   Home,
@@ -58,14 +57,6 @@ const SideNav = () => {
               <li>
                 <Link to={"/"} className="text-white flex gap-4 items-center">
                   <Home size={20} /> Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to={"/grafics"}
-                  className="text-white flex gap-4 items-center"
-                >
-                  <BarChart4 size={20} /> Gráficos
                 </Link>
               </li>
               <li>
