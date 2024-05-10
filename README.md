@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-     <a href="PROJECT__URL">📱 Visite o site</a>
+     <a href="https://allintra-coins.vercel.app/" target="_blank">📱 Visite o site</a>
 </p>
 
 <h2 id="layout">🎨 Layout</h2>
