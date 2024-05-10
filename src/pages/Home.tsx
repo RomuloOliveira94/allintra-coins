@@ -7,12 +7,12 @@ const Home = () => {
   const { favoriteCriptos } = useSelector(
     (state: RootState) => state.favoriteCriptos
   );
+
   const { connection, loading } = useFetchCriptoData(favoriteCriptos);
+
   const { criptosLastValues } = useSelector(
     (state: RootState) => state.criptosRealtimeData
   );
-
-  console.log(criptosLastValues);
 
   if (!connection || loading) {
     return (
@@ -43,6 +43,7 @@ const Home = () => {
       <div className="grid md:grid-cols-4 gap-4 mt-6">
         {Array.from(criptosLastValues)
           .sort()
+          .filter(([key]) => favoriteCriptos.includes(key))
           .map(([key, value], index) => (
             <CriptoCard
               key={index}
