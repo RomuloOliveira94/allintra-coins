@@ -25,11 +25,10 @@ const CriptoCard = ({
       : "text-black";
 
   return (
-    <div className="flex justify-between items-center bg-white p-3 rounded-lg text-black">
+    <div className="flex justify-between items-center bg-white p-3 rounded-lg text-black shadow-md">
       <div className="grid gap-2">
         <div className="flex gap-2 font-bold text-xl">
-          <h2>{name}</h2>-
-          <p>{symbol}</p>
+          <h2>{name}</h2>-<p>{symbol}</p>
         </div>
 
         <div className="flex justify-between font-semibold">

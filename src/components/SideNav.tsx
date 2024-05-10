@@ -1,11 +1,4 @@
-import {
-  ChevronRight,
-  Coins,
-  Home,
-  LogOut,
-  Settings,
-  X,
-} from "lucide-react";
+import { ChevronRight, Coins, Home, LogOut, Settings, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -21,7 +14,7 @@ const SideNav = () => {
   }, []);
 
   return (
-    <div>
+    <div className="shadow-md">
       {isMobile && (
         <button
           className={
@@ -31,20 +24,16 @@ const SideNav = () => {
           }
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? (
-            <X size={32} className="text-white" />
-          ) : (
-            <ChevronRight size={40} />
-          )}
+          {isOpen ? <X size={32} className="" /> : <ChevronRight size={40} />}
         </button>
       )}
 
       {isOpen && (
-        <header className="items-center bg-primary p-6 sm:min-w-[15vw] relative h-full min-w-[50vw]">
-          <h1 className="text-xl text-warning font-bold text-center flex flex-col items-center gap-2 mb-4">
+        <header className="items-center bg-base-100 p-6 sm:min-w-[15vw] relative h-full min-w-[50vw]">
+          <h1 className="text-xl font-bold text-center flex flex-col items-center gap-2 mb-4">
             Allintra Coins{" "}
             <span>
-              <Coins size={32} className="text-warning" />
+              <Coins size={32} className="text-yellow-600" />
             </span>
           </h1>
           <nav>
@@ -55,23 +44,17 @@ const SideNav = () => {
               }}
             >
               <li>
-                <Link to={"/"} className="text-white flex gap-4 items-center">
+                <Link to={"/"} className="flex gap-4 items-center">
                   <Home size={20} /> Home
                 </Link>
               </li>
               <li>
-                <Link
-                  to={"/config"}
-                  className="text-white flex gap-4 items-center"
-                >
+                <Link to={"/config"} className="flex gap-4 items-center">
                   <Settings size={20} /> Configurar
                 </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="text-white flex gap-4 items-center mt-10"
-                >
+                <a href="#" className="flex gap-4 items-center mt-10">
                   <LogOut size={20} /> Sair
                 </a>
               </li>

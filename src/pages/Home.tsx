@@ -37,7 +37,7 @@ const Home = () => {
       <h2 className="text-lg text-center font-light">
         Acompanhe suas moedas favoritas em tempo real.
       </h2>
-      <small className="text-center">*Flutuação na janela de 24h</small>
+      <p className="text-center my-2 font-extralight">*Flutuação na janela de 24h</p>
       <div className="grid xl:grid-cols-4 gap-4 mt-6">
         {Array.from(criptosLastValues)
           .sort()
