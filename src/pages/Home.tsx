@@ -7,12 +7,11 @@ const Home = () => {
   const { favoriteCriptos } = useSelector(
     (state: RootState) => state.favoriteCriptos
   );
-
   const { connection, loading } = useFetchCriptoData(favoriteCriptos);
-
   const { criptosLastValues } = useSelector(
     (state: RootState) => state.criptosRealtimeData
   );
+
 
   if (!connection || loading) {
     return (
@@ -40,7 +39,7 @@ const Home = () => {
         Acompanhe suas moedas favoritas em tempo real.
       </h2>
 
-      <div className="grid md:grid-cols-4 gap-4 mt-6">
+      <div className="grid xl:grid-cols-4 gap-4 mt-6">
         {Array.from(criptosLastValues)
           .sort()
           .filter(([key]) => favoriteCriptos.includes(key))

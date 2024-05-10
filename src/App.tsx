@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="flex min-h-screen">
       <SideNav />
-      <main className="container w-full">
+      <main className="container overflow-x-auto">
         <Outlet />
       </main>
     </div>

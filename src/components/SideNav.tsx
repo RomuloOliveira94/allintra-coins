@@ -41,7 +41,7 @@ const SideNav = () => {
       )}
 
       {isOpen && (
-        <header className="items-center bg-primary p-6 xl:min-w-[15vw] relative h-full min-w-[50vw]">
+        <header className="items-center bg-primary p-6 sm:min-w-[15vw] relative h-full min-w-[50vw]">
           <h1 className="text-xl text-warning font-bold text-center flex flex-col items-center gap-2 mb-4">
             Allintra Coins{" "}
             <span>
