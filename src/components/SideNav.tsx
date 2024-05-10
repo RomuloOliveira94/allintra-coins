@@ -7,32 +7,42 @@ import {
   Settings,
   X,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const SideNav = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth < 1024) {
+      setIsMobile(true);
+      setIsOpen(false);
+    }
+  }, []);
 
   return (
-    <div className="fixed h-full">
-      <button
-        className={
-          isOpen
-            ? "absolute top-0 left-40 z-10 xl:left-48"
-            : "absolute top-0 left-0"
-        }
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        {isOpen ? (
-          <X size={32} className="text-white" />
-        ) : (
-          <ChevronRight size={40} />
-        )}
-      </button>
+    <div>
+      {isMobile && (
+        <button
+          className={
+            isOpen
+              ? "absolute top-0 left-40 z-10 xl:left-48"
+              : "absolute top-0 left-0"
+          }
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? (
+            <X size={32} className="text-white" />
+          ) : (
+            <ChevronRight size={40} />
+          )}
+        </button>
+      )}
 
       {isOpen && (
-        <header className="items-center bg-slate-500 p-3 xl:min-w-[15vw] relative h-full min-w-[50vw]">
-          <h1 className="text-xl text-warning font-bold text-center my-6 flex flex-col items-center gap-2">
+        <header className="items-center bg-primary p-6 xl:min-w-[15vw] relative h-full min-w-[50vw]">
+          <h1 className="text-xl text-warning font-bold text-center flex flex-col items-center gap-2 mb-4">
             Allintra Coins{" "}
             <span>
               <Coins size={32} className="text-warning" />
@@ -41,7 +51,9 @@ const SideNav = () => {
           <nav>
             <ul
               className="flex flex-col  gap-2 w-full text-lg"
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => {
+                isMobile && setIsOpen(false);
+              }}
             >
               <li>
                 <Link to={"/"} className="text-white flex gap-4 items-center">
