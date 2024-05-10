@@ -7,6 +7,11 @@ const criptosRealtimeData: CriptoData = {
   criptosLastValues: new Map(),
 };
 
+const calcPercentage = (oldValue: number | undefined, newValue: number) => {
+  if (!oldValue) return 0;
+  return ((newValue - oldValue) / oldValue) * 100;
+};
+
 export const criptosRealtimeDataSlice = createSlice({
   name: "criptosRealtimeData",
   initialState: criptosRealtimeData,
@@ -17,14 +22,6 @@ export const criptosRealtimeDataSlice = createSlice({
       );
       const criptoImageUrl = criptoAsset?.icon;
       const criptoName = criptoAsset?.name;
-
-      const calcPercentage = (
-        oldValue: number | undefined,
-        newValue: number
-      ) => {
-        if (!oldValue) return 0;
-        return ((newValue - oldValue) / oldValue) * 100;
-      };
 
       const percentage = calcPercentage(
         state.criptosLastValues.get(action.payload.data.s)?.price,

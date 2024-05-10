@@ -7,7 +7,6 @@ const standartCriptosData = standartCriptos.map((cripto) =>
   criptosJson.find((c) => c.symbol === cripto.split("USDT")[0])
 );
 
-console.log(standartCriptosData);
 const favoriteCriptos: FavoriteCriptos = {
   favoriteCriptos: standartCriptos,
   favoriteCriptosData: standartCriptosData,
@@ -20,14 +19,15 @@ export const favoriteCriptosSlice = createSlice({
   initialState: favoriteCriptos,
   reducers: {
     addCripto: (state, action) => {
-      state.favoriteCriptos.push(action.payload + "USDT");
+      state.favoriteCriptos.push(`${action.payload}USDT`);
       state.favoriteCriptosData.push(
         criptosJson.find((c) => c.symbol === action.payload)
       );
     },
     removeCripto: (state, action) => {
-      state.favoriteCriptos = state.favoriteCriptos.filter(
-        (cripto) => cripto !== action.payload
+      state.favoriteCriptos.splice(
+        state.favoriteCriptos.indexOf(`${action.payload}USDT`),
+        1
       );
       state.favoriteCriptosData = state.favoriteCriptosData.filter(
         (cripto) => cripto.symbol !== action.payload
