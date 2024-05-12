@@ -13,6 +13,7 @@ const ThemeChanger = () => {
   return (
     <div>
       <button
+        type="button" 
         className="btn btn-secondary flex items-center gap-2"
         onClick={handleChangeTheme}
       >
