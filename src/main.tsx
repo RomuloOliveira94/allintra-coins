@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import store from "./store/store.tsx";
 import { enableMapSet } from "immer";
 import Config from "./pages/Config.tsx";
+import { ThemeProvider } from "./providers/ThemeProvider.tsx";
 
 enableMapSet();
 
@@ -26,8 +27,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
+    <ThemeProvider>
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
+    </ThemeProvider>
   </React.StrictMode>
 );

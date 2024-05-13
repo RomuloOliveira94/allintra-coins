@@ -41,7 +41,7 @@ const SideNav = () => {
       className={`shadow-md max-sm:fixed max-sm:h-full ${
         localStorage.getItem("theme") === "dracula"
           ? "border-r border-gray-700"
-          : "border-gray-300"
+          : "border-gray-200"
       }`}
     >
       {isMobile && (
