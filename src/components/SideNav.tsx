@@ -39,9 +39,9 @@ const SideNav = () => {
   return (
     <div
       className={`shadow-md max-sm:fixed max-sm:h-full ${
-        localStorage.getItem("theme") === "dracula"
-          ? "border-r border-gray-700"
-          : "border-gray-200"
+        localStorage.getItem("theme") === "light"
+        ? "border-gray-200"
+        : "border-r border-gray-700"
       }`}
     >
       {isMobile && (
